@@ -24,6 +24,8 @@ def hanlde_verification():
 def handle_message():
     input_data = request.get_json()
 
+    print(input_data)
+
     for event in input_data['entry']:
         messaging = event['messaging']
         for message in messaging:
