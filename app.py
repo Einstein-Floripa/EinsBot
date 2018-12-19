@@ -1,18 +1,18 @@
 from flask import Flask, request
-from sensitive import VERIFY_TOKEN, ACCESS_TOKEN
 from pymessenger.bot import Bot
+import os
 import requests
 
 
 app = Flask(__name__)
-bot = Bot(ACCESS_TOKEN)
+bot = Bot(os.environ['ACCESS_TOKEN'])
 
 # Dealing with GET method for verification
 
 
 @app.route('/', methods=['GET', ])
 def hanlde_verification():
-    if request.args.get('hub.verify_token', '') == VERIFY_TOKEN:
+    if request.args.get('hub.verify_token', '') == os.environ['VERIFY_TOKEN']:
         return request.args.get('hub.challenge', '')
 
     else:
