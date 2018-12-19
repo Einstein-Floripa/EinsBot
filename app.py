@@ -12,6 +12,8 @@ bot = Bot(os.environ['ACCESS_TOKEN'])
 
 @app.route('/', methods=['GET', ])
 def hanlde_verification():
+    print(os.environ['ACCESS_TOKEN'])
+    print(os.environ['VERIFY_TOKEN'])
     if request.args.get('hub.verify_token', '') == os.environ['VERIFY_TOKEN']:
         return request.args.get('hub.challenge', '')
 
