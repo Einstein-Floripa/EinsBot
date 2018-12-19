@@ -1,5 +1,5 @@
 from flask import Flask, request
-from sensitive import PAT, VERIFY_TOKEN, ACCESS_TOKEN
+from sensitive import VERIFY_TOKEN, ACCESS_TOKEN
 from pymessenger.bot import Bot
 import requests
 
