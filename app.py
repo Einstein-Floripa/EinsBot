@@ -15,8 +15,8 @@ def hanlde_verification():
     print('Access token: ', os.environ['ACCESS_TOKEN'])
     print('Verify token: ', os.environ['VERIFY_TOKEN'])
     print('Request token: ', request.args.get('hub.verify_token', ''))
-    print('Equals?: ', request.args.get(
-        'hub.verify_token', '') == os.environ['VERIFY_TOKEN'])
+    print('Equals?: ', str(request.args.get(
+        'hub.verify_token', '')) == str(os.environ['VERIFY_TOKEN']))
     if request.args.get('hub.verify_token', '') == os.environ['VERIFY_TOKEN']:
         return request.args.get('hub.challenge', '')
 
