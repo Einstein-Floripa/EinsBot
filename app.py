@@ -27,6 +27,7 @@ def handle_message():
     for event in input_data['entry']:
         messaging = event['messaging']
         for message in messaging:
+            print(message['message'].get('text'))
             recipient_id = message['sender']['id']
 
             send_message(recipient_id, get_response_message())
